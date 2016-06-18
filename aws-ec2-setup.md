@@ -20,6 +20,7 @@ Create a downloads folder.
 ```
 mkdir downloads
 ```
+
 # Download and install Nvidia CUDA
 
 ```
@@ -89,7 +90,6 @@ make test -j8
 make runtest
 ```
 
-----------------
 ## Installing Anaconda
 
 Download Anaconda
