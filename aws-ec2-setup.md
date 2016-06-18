@@ -3,7 +3,7 @@
 ## Update the package lists
 
 ```
-apt-get update
+sudo apt-get update
 ```
 
 ## Installing general dependencies
@@ -46,6 +46,8 @@ Add CUDA to ```.bashrc```
 ```
 echo 'export PATH=$PATH:/usr/local/cuda-7.5/bin' >> ~/.bashrc 
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-7.5/lib64' >> ~/.bashrc 
+
+source ~/.bashrc
 ```
 
 ## Installing cuDNN
@@ -61,6 +63,7 @@ sudo cp include/cudnn.h /usr/local/cuda/include/
 ## Download Caffe
 
 ```
+cd
 git clone https://github.com/BVLC/caffe.git
 ```
 
@@ -92,6 +95,7 @@ make runtest
 Download Anaconda
 
 ``` 
+cd ~/downloads
 wget http://repo.continuum.io/archive/Anaconda2-4.0.0-Linux-x86_64.sh
 ```
 Install Anaconda
@@ -100,11 +104,12 @@ Install Anaconda
 bash ./Anaconda2-4.0.0-Linux-x86_64.sh
 ```
 
-## Installinf additional dependencies
+## Installing additional dependencies
 
 ```
 sudo apt-get install graphviz
-conda install cv2
+sudo apt-get install python-opencv
+conda install opencv
 pip install lmdb
 pip install pydot
 ```
@@ -116,6 +121,7 @@ pip install pydot
 cd /home/ubuntu/caffe/python
 for req in $(cat requirements.txt); do pip install $req; done
 
+cd /home/ubuntu/caffe
 make pycaffe
 ```
 
@@ -124,6 +130,7 @@ make pycaffe
 ```
 echo 'export CAFFE_ROOT=/home/ubuntu/caffe' >> ~/.bashrc
 echo 'export PYTHONPATH=/home/ubuntu/caffe/python:/home/ubuntu/anaconda2/bin/python' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 ## Execute the command below to solve libdc1394 error
