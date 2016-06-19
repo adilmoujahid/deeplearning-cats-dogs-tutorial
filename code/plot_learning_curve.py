@@ -5,8 +5,7 @@ Author          :Adil Moujahid
 Date Created    :20160619
 Date Modified   :20160619
 version         :0.1
-usage           :python plot_learning_curve.py /home/ubuntu/cats-dogs-tutorial/caffe_models/caffe_model_1/model_1_train.log \
-				/home/ubuntu/cats-dogs-tutorial/caffe_models/caffe_model_1/caffe_model_1_learning_curve.png
+usage           :python plot_learning_curve.py model_1_train.log ./caffe_model_1_learning_curve.png
 python_version  :2.7.11
 '''
 
