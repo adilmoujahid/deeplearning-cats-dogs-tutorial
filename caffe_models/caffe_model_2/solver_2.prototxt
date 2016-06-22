@@ -1,0 +1,14 @@
+net: "/home/ubuntu/cats-dogs-tutorial/caffe_models/caffe_model_2/caffenet_train_val_2.prototxt"
+test_iter: 1000
+test_interval: 1000
+base_lr: 0.001
+lr_policy: "step"
+gamma: 0.1
+stepsize: 2500
+display: 50
+max_iter: 40000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 5000
+snapshot_prefix: "/home/ubuntu/cats-dogs-tutorial/caffe_models/caffe_model_2/caffe_model_2"
+solver_mode: GPU
