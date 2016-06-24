@@ -1,10 +1,10 @@
 '''
 Title           :create_lmdb.py
-Description     :This script stores train and test images into 3 lmdb databases (training, validation, test).
+Description     :This script divides the training images into 2 sets and stores them in lmdb databases for training and validation.
 Author          :Adil Moujahid
 Date Created    :20160619
-Date Modified   :20160619
-version         :0.1
+Date Modified   :20160625
+version         :0.2
 usage           :python create_lmdb.py
 python_version  :2.7.11
 '''
@@ -46,13 +46,11 @@ def make_datum(img, label):
         label=label,
         data=np.rollaxis(img, 2).tostring())
 
-train_lmdb = '/home/ubuntu/cats-dogs-tutorial/input/train_lmdb'
-validation_lmdb = '/home/ubuntu/cats-dogs-tutorial/input/validation_lmdb'
-test_lmdb = '/home/ubuntu/cats-dogs-tutorial/input/test_lmdb'
+train_lmdb = '/home/ubuntu/deeplearning-cats-dogs-tutorial/input/train_lmdb'
+validation_lmdb = '/home/ubuntu/deeplearning-cats-dogs-tutorial/input/validation_lmdb'
 
 os.system('rm -rf  ' + train_lmdb)
 os.system('rm -rf  ' + validation_lmdb)
-os.system('rm -rf  ' + test_lmdb)
 
 
 train_data = [img for img in glob.glob("../input/train/*jpg")]
@@ -97,20 +95,5 @@ with in_db.begin(write=True) as in_txn:
         in_txn.put('{:0>5d}'.format(in_idx), datum.SerializeToString())
         print '{:0>5d}'.format(in_idx) + ':' + img_path
 in_db.close()
-
-
-print '\nCreating test_lmdb'
-
-in_db = lmdb.open(test_lmdb, map_size=int(1e12))
-with in_db.begin(write=True) as in_txn:
-    for in_idx, img_path in enumerate(test_data):
-        img = cv2.imread(img_path, cv2.IMREAD_COLOR)
-        img = transform_img(img, img_width=IMAGE_WIDTH, img_height=IMAGE_HEIGHT)
-        label = 0
-        datum = make_datum(img, label)
-        in_txn.put('{:0>5d}'.format(in_idx), datum.SerializeToString())
-        print '{:0>5d}'.format(in_idx) + ':' + img_path
-in_db.close()
-
 
 print '\nFinished processing all images'
