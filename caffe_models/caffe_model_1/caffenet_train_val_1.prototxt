@@ -10,7 +10,7 @@ layer {
   transform_param {
     mirror: true
     crop_size: 227
-    mean_file: "/home/ubuntu/cats-dogs-tutorial/input/mean.binaryproto"
+    mean_file: "/home/ubuntu/deeplearing-cats-dogs-tutorial/input/mean.binaryproto"
   }
 # mean pixel / channel-wise mean instead of mean image
 #  transform_param {
@@ -21,7 +21,7 @@ layer {
 #    mirror: true
 #  }
   data_param {
-    source: "/home/ubuntu/cats-dogs-tutorial/input/train_lmdb"
+    source: "/home/ubuntu/deeplearning-cats-dogs-tutorial/input/train_lmdb"
     batch_size: 256
     backend: LMDB
   }
@@ -37,7 +37,7 @@ layer {
   transform_param {
     mirror: false
     crop_size: 227
-    mean_file: "/home/ubuntu/cats-dogs-tutorial/input/mean.binaryproto"
+    mean_file: "/home/ubuntu/deeplearning-cats-dogs-tutorial/input/mean.binaryproto"
   }
 # mean pixel / channel-wise mean instead of mean image
 #  transform_param {
@@ -48,7 +48,7 @@ layer {
 #    mirror: true
 #  }
   data_param {
-    source: "/home/ubuntu/cats-dogs-tutorial/input/validation_lmdb"
+    source: "/home/ubuntu/deeplearning-cats-dogs-tutorial/input/validation_lmdb"
     batch_size: 50
     backend: LMDB
   }
