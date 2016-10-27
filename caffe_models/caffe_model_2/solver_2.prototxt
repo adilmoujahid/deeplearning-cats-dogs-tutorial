@@ -1,4 +1,4 @@
-net: "/home/ubuntu/cats-dogs-tutorial/caffe_models/caffe_model_2/caffenet_train_val_2.prototxt"
+net: "/home/ubuntu/deeplearning-cats-dogs-tutorial/caffe_models/caffe_model_2/caffenet_train_val_2.prototxt"
 test_iter: 1000
 test_interval: 1000
 base_lr: 0.001
@@ -9,6 +9,6 @@ display: 50
 max_iter: 40000
 momentum: 0.9
 weight_decay: 0.0005
-snapshot: 5000
-snapshot_prefix: "/home/ubuntu/cats-dogs-tutorial/caffe_models/caffe_model_2/caffe_model_2"
+snapshot: 1000
+snapshot_prefix: "/home/ubuntu/deeplearning-cats-dogs-tutorial/caffe_models/caffe_model_2/caffe_model_2"
 solver_mode: GPU
